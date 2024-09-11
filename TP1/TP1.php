@@ -6,6 +6,29 @@
     <title>TP1</title>
 </head>
 <body>
-    
+    <?php
+        q2($_SERVER['REMOTE_ADDR']);
+        
+    ?>
 </body>
 </html>
+<?php
+    function Q2($ip){
+
+    echo "<p> $ip </p>";
+    $classe = explode('.', $ip);
+    if ($classe[0]<128) {
+        echo "<p> classe A !! </p>";
+    }
+    elseif ($classe[0]>127) {
+        echo "<p> classe B !! </p>";
+    }
+    elseif ($classe[0]<192) {
+        echo "<p> classe C !! </p>";
+    }
+    else {
+        echo "<p> ya un probleme quelque part </p>";
+    }
+    }
+
+?>
