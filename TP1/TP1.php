@@ -17,6 +17,7 @@
 
     echo "<p> $ip </p>";
     $classe = explode('.', $ip);
+    var_dump($classe);
     if ($classe[0]<128) {
         echo "<p> classe A !! </p>";
     }
@@ -32,7 +33,7 @@
     }
     function Q3($fichier){
         $monFic = fopen($fichier,"r+");
-        $ligne = fgets($monFic,255);
+        $ligne = fgetcsv($monFic,255);
         $tableauLigne = explode(",",$ligne);
         var_dump($tableauLigne);
         echo '<p> <strong>Nom </strong> : '.$tableauLigne[0]. '</p>';
