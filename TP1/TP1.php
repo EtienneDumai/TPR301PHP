@@ -8,7 +8,8 @@
 <body>
     <?php
         Q2($_SERVER['REMOTE_ADDR']);
-        Q3(fichier: "restos.csv");
+        Q3("restos.csv");
+        Q4("ex4.txt");
     ?>
 </body>
 </html>
@@ -40,6 +41,13 @@
             echo'<p> <strong>Restaurant </strong> : '.$ligne[2].' </p>';
         }
         fclose($monFic);
-    
-}
+    }
+    function Q4($fichier){
+        
+        $ligne = file_get_contents($fichier);
+        (int)$ligne += 1;
+        file_put_contents($fichier, $ligne);
+        echo $ligne;
+    }
+
 ?>
