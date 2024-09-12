@@ -8,7 +8,7 @@
 <body>
     <?php
         Q2($_SERVER['REMOTE_ADDR']);
-        Q3("restos.csv");
+        Q3(fichier: "restos.csv");
     ?>
 </body>
 </html>
@@ -30,14 +30,16 @@
     else {
         echo "<p> ya un probleme quelque part </p>";
     }
-    }
+    } 
     function Q3($fichier){
         $monFic = fopen($fichier,"r+");
-        $ligne = fgetcsv($monFic,255);
-        $tableauLigne = explode(",",$ligne);
-        var_dump($tableauLigne);
-        echo '<p> <strong>Nom </strong> : '.$tableauLigne[0]. '</p>';
-        echo'<p> <strong>Prenom </strong> : '.$tableauLigne[1] .'</p>';
-        echo'<p> <strong>Restaurant </strong> : '.$tableauLigne[2].' </p>';
-    }
+        while (!feof($monFic)) {
+            $ligne = fgetcsv($monFic,255,";");
+            echo '<p> <strong>Nom </strong> : '.$ligne[1]. '</p>';
+            echo'<p> <strong>Prenom </strong> : '.$ligne[0] .'</p>';
+            echo'<p> <strong>Restaurant </strong> : '.$ligne[2].' </p>';
+        }
+        fclose($monFic);
+    
+}
 ?>
