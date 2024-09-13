@@ -7,35 +7,45 @@
 </head>
 <body>
 <h2>Formulaire de Don Caritatif</h2>
-    <form action="/submit-donation" method="POST">
-        <!-- Champ Nom -->
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom" required><br><br>
-
-        <!-- Champ Âge -->
-        <label for="age">Âge :</label>
-        <input type="number" id="age" name="age" min="18" required><br><br>
-
-        <!-- Champ Email -->
-        <label for="mail">Email :</label>
-        <input type="email" id="mail" name="mail" required><br><br>
-
-        <!-- Champ Valeur du Don -->
-        <label for="don">Valeur du don (€) :</label>
-        <input type="number" id="don" name="don" step="0.01" min="1" required><br><br>
-
-        <!-- Bouton de soumission -->
-        <input type="submit" value="Faire un don">
-    </form>
+    
 </body>
 </html>
     <?php
-        
+        Q1();
     ?>
 </body>
 </html>
 <?php
     function Q1(){
+        if(isset($_POST['submit'])){
+            $nom = $_POST['nom'];
+            $age = $_POST['age'];
+            $mail = $_POST['mail'];
+            $don = $_POST['don'];
+            echo "Nom : $nom | Âge : $age | Email : $mail | Don : $don € ";
+            $monFic = fopen("resultats.txt","a+");
+            fwrite($monFic, "Nom : $nom | Âge : $age | Email : $mail | Don : $don € \n");
+            fclose($monFic);
 
-    };
+            
+        }
+        
+            echo '<br><form id="formulaire" method="post">
+
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" value = required><br><br>
+
+        <label for="age">Âge :</label>
+        <input type="number" id="age" name="age" min="18"  required><br><br>
+
+        <label for="mail">Email :</label>
+        <input type="email" id="mail" name="mail"  required><br><br>
+
+        <label for="don">Valeur du don (€) :</label>
+        <input type="number" id="don" name="don" step="0.01" min="1"  required><br><br>
+
+        <input type="submit" name="submit" value="Faire un don">
+    </form>';
+        
+    }
 ?>
