@@ -12,7 +12,8 @@
 </html>
     <?php
         Q1();
-       
+        Q2();
+
     ?>
 </body>
 </html>
@@ -35,8 +36,9 @@
         <input type="number" id="don" name="don" step="0.01" min="1"  required><br><br>
 
         <input type="submit" name="submit" value="Faire un don">
-    </form>
-    <button id="resultatsMail">Resultats</button><br><br>';
+    
+    <button id="resultatsMail">Resultats</button><br><br>
+    </form>';
     if(isset($_POST['submit'])){
         $nom = $_POST['nom'];
         $age = $_POST['age'];
@@ -48,19 +50,43 @@
         fclose($monFic);
 
         
-    }
-        Q2();
-    }
-    function Q2(){
-        if(isset($_POST['resultatsMail'])){
-            while (!feof($monFic)) {
-                $addrMail=0;
-                $message = fgets($monFic);
-                $messageSplit = explode("|", $message);
-                $mail = explode(":", $messageSplit[2]);
-                mail($mail[$addrMail], "Resultats", $message);
-                $addrMail++;
+        }
+}
+
+function Q2(){
+    if(isset($_POST['resultatsMail'])){
+        $monFic = fopen("resultats.txt","r");
+        $total = file("resultats.txt");
+        $totalInt = count($total);
+        $totalDon = 0;
+        $message = "";
+        $ageTotal = 0;
+        while (!feof($monFic)) {
+            $ligne = fgets($monFic);
+            $ligneSplit = explode("|", $ligne);
+            if(count($ligneSplit) < 4){
+                break;
+            }
+            else{
+                $don = explode(":", $ligneSplit[3]);
+                trim($don[1]);
+                $donInt = (int)$don[1];
+                $totalDon += $donInt;
+                $age = explode(":", $ligneSplit[1]);
+                trim($age[1]);
+                $ageInt = (int)$age[1];
+                $ageTotal += $ageInt;
             }
         }
-    };
+        fclose($monFic);
+        $moyAge = ($ageTotal / $totalInt);
+        echo "test <br>";
+        echo "$moyAge <br>";
+        echo $totalDon;
+        $message = "La cagnotte cumule à $totalDon €, la moyenne d'âge est de $moyAge ans";
+        //mail("etienne.dumai@gmail.com", "Resultats", $message);
+
+    }
+    
+}
 ?>
