@@ -24,7 +24,5 @@ Nom : Etienne | Âge : 67 | Email : etienne.dumai@gmail.com | Don : 67 €
 Nom : Etienne | Âge : 67 | Email : etienne.dumai@gmail.com | Don : 67 € 
 Nom : Etienne | Âge : 67 | Email : etienne.dumai@gmail.com | Don : 67 € 
 Nom : Etienne | Âge : 67 | Email : etienne.dumai@gmail.com | Don : 67 € 
-Nom : Etienne | Âge : 56 | Email : etienne.dumai@gmail.com | Don : 54 € Nom : <script>Alert('toto')</script> | Âge : 18 | Email : amoulin97@jssjsj.fr | Don : 43 € 
-Nom : <script>Alert('toto')</script> | Âge : 18 | Email : amoulin97@jssjsj.fr | Don : 43 € 
-Nom : <script>alert('votre machine est infecté')</script> | Âge : 74 | Email : etienne.dumai@gmail.com | Don : 65 € 
-Nom : Etienne | Âge : 18 | Email : etienne.dumai@gmail.com | Don : 1 € 
+Nom : Etienne | Âge : 56 | Email : etienne.dumai@gmail.com | Don : 54 € 
+
