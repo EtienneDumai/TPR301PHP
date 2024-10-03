@@ -17,9 +17,17 @@ if (!file_exists("Form1.html")) {
 $filepath = 'config.ini';
 $data = fopen($filepath, "r");
 $tabNouvellesValeurs = [];
-for ($i=0; $i < count(file($ficData)); $i++) { 
-    if (file($data)[0] != "[" ) {
-        array_push($tabNouvellesValeurs, $data[$i]);
+//parcourir le fichier
+while (!feof($data)){
+    //lire la ligne
+    $ligne = fgets($data);
+    //si la ligne ne contient pas un crochet ouvrant
+    if ($ligne[0] != "[") {
+        //ajouter la ligne dans le tableau
+        array_push($tabNouvellesValeurs, $ligne);
     }
 }
+//fermer le fichier
+fclose($data);
+
 ?>
