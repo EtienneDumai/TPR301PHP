@@ -7,6 +7,7 @@
 </head>
 <body>
     <?php
+
         $bdd= "bourse"; // Base de données
         $host= "localhost";
         $user= "root"; // Utilisateur
@@ -110,7 +111,7 @@
         ImageDestroy($image);
 
         echo "<img src='img/image.jpeg'>";
-
+        echo "<button><a href='login.php'>Retour</a></button>";
     ?>
 </body>
 </html>
