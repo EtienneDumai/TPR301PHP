@@ -7,7 +7,11 @@
 </head>
 <body>
     <?php
-
+    session_start();
+    
+    if ($_SESSION['connexionOk'] == false) {
+        header('Location: login.php');
+    }  
         $bdd= "bourse"; // Base de données
         $host= "localhost";
         $user= "root"; // Utilisateur
