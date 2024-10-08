@@ -115,7 +115,11 @@
         ImageDestroy($image);
 
         echo "<img src='img/image.jpeg'>";
-        echo "<button><a href='login.php'>Retour</a></button>";
+        echo "<form method = 'post'><button name='deconnexion'>Deconnexion</button></form>";
+        if (isset($_POST['deconnexion'])) {
+            session_destroy();
+            header('Location: login.php');
+        }
     ?>
 </body>
 </html>
